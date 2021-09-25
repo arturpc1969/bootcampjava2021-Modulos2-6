@@ -15,7 +15,7 @@ import lombok.Setter;
 public class LivroFormDto {
 	
 	@NotBlank
-	@Size(min = 10, max = 100)
+	@Size(min = 10)
 	private String titulo;
 	
 	@PastOrPresent
@@ -25,6 +25,5 @@ public class LivroFormDto {
 	private int numeroDePaginas;
 	
 	private AutorFormDto autor;
-	//private int autorId;
 
 }
