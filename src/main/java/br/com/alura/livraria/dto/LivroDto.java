@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class LivroDto {
 	
-	private int livroId;
+	private Long livroId;
 	private String titulo;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy") 
 	private LocalDate dataDeLancamento;
 	
-	private int numeroDePaginas;
+	private Integer numeroDePaginas;
 	private AutorDto autor;
 	
 	@JsonGetter("autor")

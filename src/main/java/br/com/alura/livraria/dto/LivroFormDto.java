@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
@@ -22,8 +23,9 @@ public class LivroFormDto {
 	private LocalDate dataDeLancamento;
 	
 	@Min(100)
-	private int numeroDePaginas;
+	private Integer numeroDePaginas;
 	
-	private AutorFormDto autor;
+	@NotNull
+	private Long autorId;
 
 }

@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class AutorDto {
 	
-	private int autorId;
+	private Long autorId;
 	private String nome;
 	private String email;
 	
