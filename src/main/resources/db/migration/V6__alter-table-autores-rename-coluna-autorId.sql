@@ -1,0 +1,1 @@
+ALTER TABLE `autores` RENAME COLUMN `autorId` TO `autor_id`;
