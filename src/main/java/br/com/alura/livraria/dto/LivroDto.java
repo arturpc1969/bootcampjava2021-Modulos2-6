@@ -22,8 +22,8 @@ public class LivroDto {
 	private AutorDto autor;
 	
 	@JsonGetter("autor")
-	public String getNomeAutorDto() {
-		return autor.getNome();
+	public Long getIdAutorDto() {
+		return autor.getAutorId();
 	}
 
 }

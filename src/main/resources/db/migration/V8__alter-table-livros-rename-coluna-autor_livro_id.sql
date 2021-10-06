@@ -1,0 +1,1 @@
+ALTER TABLE `livros` RENAME COLUMN `autor_livro_id` TO `autor_id`;
