@@ -33,7 +33,7 @@ public class Livro {
 	private Integer numeroDePaginas;
 	
 	@ManyToOne
-	@JoinColumn(name="autorId")
-	private Autor autor;	
+	@JoinColumn(name="autor_id")
+	private Autor autor;
 
 }
