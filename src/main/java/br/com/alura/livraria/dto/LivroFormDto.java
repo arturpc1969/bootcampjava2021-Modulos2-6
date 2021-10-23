@@ -16,7 +16,7 @@ import lombok.Setter;
 public class LivroFormDto {
 	
 	@NotBlank
-	@Size(min = 10)
+	@Size(min = 10, message = "{tamanho.titulo.invalido}")
 	private String titulo;
 	
 	@PastOrPresent
