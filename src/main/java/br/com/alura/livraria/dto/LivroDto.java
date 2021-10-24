@@ -19,11 +19,14 @@ public class LivroDto {
 	private LocalDate dataDeLancamento;
 	
 	private Integer numeroDePaginas;
-	private AutorDto autor;
+	private Long autorId;
 	
-	@JsonGetter("autor")
-	public Long getIdAutorDto() {
-		return autor.getAutorId();
-	}
+	
+//	private AutorDto autor;
+//	
+//	@JsonGetter("autor")
+//	public Long getIdAutorDto() {
+//		return autor.getAutorId();
+//	}
 
 }

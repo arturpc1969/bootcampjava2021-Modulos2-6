@@ -36,4 +36,13 @@ public class Livro {
 	@JoinColumn(name="autor_id")
 	private Autor autor;
 
+	public Livro(String titulo, LocalDate dataDeLancamento, Integer numeroDePaginas, Autor autor) {
+		this.titulo = titulo;
+		this.dataDeLancamento = dataDeLancamento;
+		this.numeroDePaginas = numeroDePaginas;
+		this.autor = autor;
+	}
+	
+	
+
 }
