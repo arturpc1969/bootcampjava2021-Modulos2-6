@@ -37,6 +37,13 @@ public class Autor {
 		this.dataDeNascimento = dataDeNascimento;
 		this.miniCurriculo = miniCurriculo;
 	}
+
+	public void atualizarDados(String nome, String email, LocalDate dataDeNascimento, String miniCurriculo) {
+		this.nome = nome;
+		this.email = email;
+		this.dataDeNascimento = dataDeNascimento;
+		this.miniCurriculo = miniCurriculo;
+	}
 	
 	
 	

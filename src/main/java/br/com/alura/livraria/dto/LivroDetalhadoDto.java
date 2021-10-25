@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LivroDto extends LivroResumidoDto{
+public class LivroDetalhadoDto extends LivroResumidoDto{
 	
-	private Long autorId;
+	private AutorDto autor;
 
 }

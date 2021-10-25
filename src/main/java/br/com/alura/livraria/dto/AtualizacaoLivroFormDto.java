@@ -1,5 +1,7 @@
 package br.com.alura.livraria.dto;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LivroDto extends LivroResumidoDto{
+public class AtualizacaoLivroFormDto extends LivroFormDto{
 	
-	private Long autorId;
+	@NotNull
+	private Long livroId;
 
 }
