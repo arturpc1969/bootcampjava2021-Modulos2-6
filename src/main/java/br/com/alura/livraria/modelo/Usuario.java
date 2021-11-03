@@ -81,4 +81,8 @@ public class Usuario implements UserDetails{
 		return true;
 	}
 
+	public void adicionarPerfil(Perfil perfil) {
+		this.perfis.add(perfil);
+	}
+
 }
