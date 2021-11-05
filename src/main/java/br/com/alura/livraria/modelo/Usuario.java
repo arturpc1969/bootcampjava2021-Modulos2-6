@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import br.com.alura.livraria.dto.AtualizacaoUsuarioFormDto;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -83,6 +84,18 @@ public class Usuario implements UserDetails{
 
 	public void adicionarPerfil(Perfil perfil) {
 		this.perfis.add(perfil);
+	}
+
+	public Usuario(String nome, String login, String senha) {
+		this.nome = nome;
+		this.login = login;
+		this.senha = senha;
+	}
+
+	public void atualizarInformacoes(AtualizacaoUsuarioFormDto dto, List<Perfil> perfis) {
+		this.nome = dto.getNome();
+		this.login = dto.getLogin();
+		this.perfis = perfis;
 	}
 
 }

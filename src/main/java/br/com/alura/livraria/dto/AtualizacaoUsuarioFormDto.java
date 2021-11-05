@@ -1,6 +1,5 @@
 package br.com.alura.livraria.dto;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -12,15 +11,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioFormDto {
-	
-	@NotBlank
-	private String nome;
-	
-	@NotBlank
-	private String login;
+public class AtualizacaoUsuarioFormDto extends UsuarioFormDto {
 	
 	@NotNull
-	private Long perfilId;
-
+	private Long id;
 }
