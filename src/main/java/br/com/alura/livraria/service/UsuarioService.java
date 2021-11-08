@@ -1,8 +1,8 @@
 package br.com.alura.livraria.service;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.transaction.Transactional;
 
@@ -50,7 +50,7 @@ public class UsuarioService {
 		Perfil perfil = perfilRepository.getById(dto.getPerfilId());
 		usuario.adicionarPerfil(perfil);
 		
-		String senha = new Random().nextInt(999999) + "";
+		String senha = new SecureRandom().nextInt(999999) + "";
 		System.out.println("Senha gerada: " + senha);
 		usuario.setSenha(bCryptPasswordEncoder.encode(senha));
 		usuarioRepository.save(usuario);
