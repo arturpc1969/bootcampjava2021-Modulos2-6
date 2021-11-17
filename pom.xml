@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.alura</groupId>
 	<artifactId>livraria-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>livraria-api</name>
 	<description>Projeto livraria usando Spring Boot</description>
 	<properties>
