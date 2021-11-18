@@ -19,7 +19,7 @@ public class EnviadorDeEmailReal implements EnviadorDeEmail {
 	public void enviaEmail(String destinatário, String assunto, String mensagem) {
 		
 		SimpleMailMessage email = new SimpleMailMessage();
-		email.setFrom(destinatário);
+		email.setTo(destinatário);
 		email.setSubject(assunto);
 		email.setText(mensagem);
 		
