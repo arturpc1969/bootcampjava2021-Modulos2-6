@@ -41,7 +41,7 @@ public class SpringFoxSwaggerConfigurations {
 		return new ApiInfo(
 				"API Livraria On Line",
 				"API Rest para gerenciamento de uma livraria on line.",
-				"Versão 0.1",
+				"Versão 1.0",
 				"Termos de serviço",
 				new Contact("Artur Coutinho", "https://github.com/arturpc1969/", "arturpc@yahoo.com.br"),
 				"Licença da API", "URL da Licença da API", Collections.emptyList());

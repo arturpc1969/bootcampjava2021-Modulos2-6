@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.livraria.dto.AtualizacaoUsuarioFormDto;
+import br.com.alura.livraria.dto.PerfilDto;
 import br.com.alura.livraria.dto.UsuarioDetalhadoDto;
 import br.com.alura.livraria.dto.UsuarioDto;
 import br.com.alura.livraria.dto.UsuarioFormDto;
@@ -52,10 +53,12 @@ public class UsuarioService {
 		usuario.setId(null);
 		
 		Perfil perfil = perfilRepository.getById(dto.getPerfilId());
-		usuario.adicionarPerfil(perfil);
+		
+		PerfilDto perfilDto = modelMapper.map(perfil, PerfilDto.class);
+		
+		usuario.adicionarPerfil(perfilDto);
 		
 		String senha = new SecureRandom().nextInt(999999) + "";
-		System.out.println("Senha gerada: " + senha);
 		usuario.setSenha(bCryptPasswordEncoder.encode(senha));
 		usuarioRepository.save(usuario);
 		
@@ -64,8 +67,7 @@ public class UsuarioService {
 		String mensagem = String.format("Olá, %s\n\n"
 				+ "Seguem abaixo os seus dados de acesso ao sistema Livraria.\n\n"
 				+ "Login: %s\n"
-				+ "Senha: %s\n\n"
-				+ "Por favor, altere a senha após o primeiro acesso.", usuario.getNome(), usuario.getLogin(), senha);
+				+ "Senha: %s\n\n", usuario.getNome(), usuario.getLogin(), senha);
 		
 		enviadorDeEmail.enviaEmail(destinatário, assunto, mensagem);
 		

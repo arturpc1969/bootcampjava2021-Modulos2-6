@@ -43,6 +43,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 			.antMatchers("/usuarios/**").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and().cors()
 			.and().csrf().disable()
 			.addFilterBefore(new VerificacaoTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
 	}

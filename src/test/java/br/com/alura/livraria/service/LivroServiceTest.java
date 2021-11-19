@@ -14,14 +14,18 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+import org.springframework.test.context.ActiveProfiles;
 
 import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.dto.LivroFormDto;
 import br.com.alura.livraria.modelo.Autor;
+import br.com.alura.livraria.modelo.Livro;
 import br.com.alura.livraria.repository.AutorRepository;
 import br.com.alura.livraria.repository.LivroRepository;
 
 @ExtendWith(MockitoExtension.class)
+@ActiveProfiles("test")
 class LivroServiceTest {
 	
 	@Mock
@@ -29,6 +33,9 @@ class LivroServiceTest {
 	
 	@Mock
 	private AutorRepository autorRepository;
+	
+	@Mock
+	private ModelMapper modelMapper;
 	
 	@InjectMocks
 	private LivroService service;
@@ -46,10 +53,17 @@ class LivroServiceTest {
 	void deveriaCadastrarLivroComTodosArgumentosValidos() {
 		
 		LivroFormDto formDto = criaLivroFormDto();
+		Autor autor = new Autor(1l, "Nome do Autor", "autor@email.com", LocalDate.parse("1935-10-23"), "Lorem Ipsum");
+		Livro livro = new Livro("Título do livro 10", LocalDate.now(), 100,	autor);
+		LivroDto livroDto = new LivroDto(livro.getLivroId(), livro.getTitulo(), livro.getDataDeLancamento(), livro.getNumeroDePaginas(), livro.getAutor().getAutorId());
 		
 		Mockito
 		.when(autorRepository.findById(formDto.getAutorId()))
-		.thenReturn(Optional.of((new Autor(1l, "", "", LocalDate.now(), ""))));
+		.thenReturn(Optional.of((autor)));
+		
+		Mockito.when(modelMapper.map(formDto, Livro.class)).thenReturn(livro);
+		
+		Mockito.when(modelMapper.map(livro, LivroDto.class)).thenReturn(livroDto);
 		
 		LivroDto dto = service.cadastrar(formDto);
 		

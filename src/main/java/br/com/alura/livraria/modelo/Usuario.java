@@ -17,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.alura.livraria.dto.AtualizacaoUsuarioFormDto;
+import br.com.alura.livraria.dto.PerfilDto;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -83,7 +84,8 @@ public class Usuario implements UserDetails{
 		return true;
 	}
 
-	public void adicionarPerfil(Perfil perfil) {
+	public void adicionarPerfil(PerfilDto perfilDto) {
+		Perfil perfil = new Perfil(perfilDto.getId(), perfilDto.getNome());
 		this.perfis.add(perfil);
 	}
 
