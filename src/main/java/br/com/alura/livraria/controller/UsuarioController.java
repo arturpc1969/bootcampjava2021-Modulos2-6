@@ -1,7 +1,9 @@
 package br.com.alura.livraria.controller;
 
+import java.io.IOException;
 import java.net.URI;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -44,7 +46,7 @@ public class UsuarioController {
 	
 	@PostMapping
 	@ApiOperation("Cadastrar novo usuário")
-	public ResponseEntity<UsuarioDto> cadastrar(@Valid @RequestBody UsuarioFormDto dto, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<UsuarioDto> cadastrar(@Valid @RequestBody UsuarioFormDto dto, UriComponentsBuilder uriBuilder) throws MessagingException, IOException {
 		UsuarioDto usuarioDto = service.cadastrar(dto);
 		URI uri = uriBuilder
 				.path("/usuarios/{id}")
