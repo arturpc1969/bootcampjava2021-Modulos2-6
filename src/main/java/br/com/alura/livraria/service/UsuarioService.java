@@ -81,7 +81,8 @@ public class UsuarioService {
 		enviadorDeEmail.enviaEmail(destinatario, assunto, mensagem);
 		
 		Mail mail = new Mail();
-		mail.setFrom("${MAIL_USER}");//replace with your desired email
+		//mail.setFrom("${MAIL_USER}");//replace with your desired email
+		mail.setFrom("livrariateste79@gmail.com");
 		mail.setMailTo(destinatario);//replace with your desired email
 		mail.setSubject(assunto);
 
