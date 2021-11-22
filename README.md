@@ -8,4 +8,6 @@ Módulo 3: Implementa a persistência de dados com Spring Data JPA e MySQL e ger
 
 Módulo 4: Implementa personalização das mensagens de erro. Implementa testes automáticos das classes service, repository e controller, utilizando as bibliotecas JUnit, AssertJ, Mockito e MockMvc, além dos recursos de teste do próprio SpringBoot. Implementa as funcionalidades de atualizar, detalhar e excluir autores e livros, completando assim o CRUD. Implementa geração e disponibilização em HTML da documentação da API utilizando a biblioteca SpringFox Swagger.
 
-Módulo 5: Implementada segurança na API, com autenticação de usuários via token, para funcionar STATELESS. Implementado CRUD de usuários, com controle de acesso baseado em perfis. Utilizados o módulo Spring Security e a biblioteca JJWT.    
+Módulo 5: Implementada segurança na API, com autenticação de usuários via token, para funcionar STATELESS. Implementado CRUD de usuários, com controle de acesso baseado em perfis. Utilizados o módulo Spring Security e a biblioteca JJWT.
+
+Módulo 6: Preparado o código para deploy no Heroku. Configuração da aplicação para CI/CD utilizando o GitHub Actions. Criada funcionalidade de envio de email html para novo usuário cadastrado, utilizando templates Thymeleaf. Incluída a dependência do h2 para realização dos testes usando banco de dados em memória. Incluído o CORS nas configurações de segurança para permitir o acesso da aplicação front end.    
