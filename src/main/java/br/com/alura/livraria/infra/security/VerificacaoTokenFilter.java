@@ -46,6 +46,4 @@ public class VerificacaoTokenFilter extends OncePerRequestFilter{
 		filterChain.doFilter(request, response);
 	}
 
-	
-
 }

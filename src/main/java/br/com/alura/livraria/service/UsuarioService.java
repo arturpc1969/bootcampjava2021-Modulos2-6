@@ -23,7 +23,6 @@ import br.com.alura.livraria.dto.UsuarioDetalhadoDto;
 import br.com.alura.livraria.dto.UsuarioDto;
 import br.com.alura.livraria.dto.UsuarioFormDto;
 import br.com.alura.livraria.infra.EmailSenderService;
-import br.com.alura.livraria.infra.EnviadorDeEmail;
 import br.com.alura.livraria.modelo.Mail;
 import br.com.alura.livraria.modelo.Perfil;
 import br.com.alura.livraria.modelo.Usuario;
@@ -44,9 +43,6 @@ public class UsuarioService {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-	@Autowired
-	private EnviadorDeEmail enviadorDeEmail;
 
 	@Autowired
 	private EmailSenderService emailService;
@@ -72,27 +68,24 @@ public class UsuarioService {
 		usuarioRepository.save(usuario);
 		
 		String destinatario = usuario.getEmail();
-		String assunto = "Bem vindo(a) a Livraria";		
-		String mensagem = String.format("Olá, %s\n\n"
-				+ "Seguem abaixo os seus dados de acesso ao sistema Livraria.\n\n"
-				+ "Login: %s\n"
-				+ "Senha: %s\n\n", usuario.getNome(), usuario.getLogin(), senha);
-		
-		enviadorDeEmail.enviaEmail(destinatario, assunto, mensagem);
+		String assunto = "Bem vindo(a) a Livraria OnLine";		
+		String mensagem = "Seguem abaixo suas informações de acesso:";
+		String template = "email-template";
 		
 		Mail mail = new Mail();
-		//mail.setFrom("${MAIL_USER}");//replace with your desired email
-		mail.setFrom("livrariateste79@gmail.com");
-		mail.setMailTo(destinatario);//replace with your desired email
+		mail.setFrom("${MAIL_USER}");
+		mail.setMailTo(destinatario);
 		mail.setSubject(assunto);
 
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("name", usuario.getNome());
-		model.put("location", "United States");
-		model.put("sign", "Java Developer");
+		model.put("nome", usuario.getNome());
+		model.put("login", usuario.getLogin());
+		model.put("senha", senha);
+		model.put("mensagem", mensagem);
 		mail.setProps(model);
-
-		emailService.sendEmail(mail);
+		
+		
+		emailService.sendEmail(mail, template);
 		
 		return modelMapper.map(usuario, UsuarioDto.class);
 	}

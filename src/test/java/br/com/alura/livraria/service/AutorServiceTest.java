@@ -1,8 +1,6 @@
 package br.com.alura.livraria.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.isNull;
 
 import java.time.LocalDate;
 
@@ -58,5 +56,5 @@ class AutorServiceTest {
 		Mockito.verify(autorRepository).save(Mockito.any());
 
 	}
-
+	
 }

@@ -39,10 +39,12 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+//			.antMatchers("/h2-console/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/auth").permitAll()
-			.antMatchers("/usuarios/**", "/templates/**").hasRole("ADMIN")
+			.antMatchers("/usuarios/**").hasRole("ADMIN")
 			.anyRequest().authenticated()
 			.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//			.and().headers().frameOptions().sameOrigin()
 			.and().cors()
 			.and().csrf().disable()
 			.addFilterBefore(new VerificacaoTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);

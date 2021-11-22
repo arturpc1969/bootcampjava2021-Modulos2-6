@@ -8,6 +8,6 @@ import br.com.alura.livraria.modelo.Mail;
 
 public interface EmailSenderService {
 
-	void sendEmail(Mail mail) throws MessagingException, IOException;
+	void sendEmail(Mail mail, String template) throws MessagingException, IOException;
 
 }
