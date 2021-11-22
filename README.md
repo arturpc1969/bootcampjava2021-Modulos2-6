@@ -10,4 +10,4 @@ Módulo 4: Implementa personalização das mensagens de erro. Implementa testes 
 
 Módulo 5: Implementada segurança na API, com autenticação de usuários via token, para funcionar STATELESS. Implementado CRUD de usuários, com controle de acesso baseado em perfis. Utilizados o módulo Spring Security e a biblioteca JJWT.
 
-Módulo 6: Preparado o código para deploy no Heroku. Configuração da aplicação para CI/CD utilizando o GitHub Actions. Criada funcionalidade de envio de email html para novo usuário cadastrado, utilizando templates Thymeleaf. Incluída a dependência do h2 para realização dos testes usando banco de dados em memória. Incluído o CORS nas configurações de segurança para permitir o acesso da aplicação front end.    
+Módulo 6: Preparado o código para deploy no Heroku utilizando Docker. Configuração da aplicação para CI/CD utilizando o GitHub Actions. Criada funcionalidade de envio de email html para novo usuário cadastrado, utilizando templates Thymeleaf. Incluída a dependência do h2 para realização dos testes usando banco de dados em memória. Incluído o CORS nas configurações de segurança para permitir o acesso da aplicação front end.    
