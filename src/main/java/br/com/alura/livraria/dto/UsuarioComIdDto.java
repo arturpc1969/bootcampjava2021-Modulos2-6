@@ -5,10 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UsuarioDto {
+public class UsuarioComIdDto extends UsuarioDto{
 	
-	private String nome;
-	private String login;
-	private String email;
+	private Long id;
 
 }

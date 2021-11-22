@@ -80,8 +80,8 @@ class UsuarioControllerTest {
 	@Test
 	void deveriaCadastrarUsuarioComDadosValidos() throws Exception {
 
-		String json = "{\"email\": \"arturpc@yahoo.com.br\", \"login\": \"bulalo\", \"nome\": \"Bufalo\", \"perfilId\": 2}";
-		String jsonEsperado = "{\"id\": 2, \"nome\": \"Bufalo\", \"login\": \"bulalo\", \"email\": \"arturpc@yahoo.com.br\"}"; 
+		String json = "{\"email\": \"bufalo@email.com\", \"login\": \"bufalo\", \"nome\": \"Bufalo\", \"perfilId\": 2}";
+		String jsonEsperado = "{\"nome\": \"Bufalo\", \"login\": \"bufalo\", \"email\": \"bufalo@email.com\"}"; 
 
 		mvc.perform(post("/usuarios")
 				.contentType(MediaType.APPLICATION_JSON)

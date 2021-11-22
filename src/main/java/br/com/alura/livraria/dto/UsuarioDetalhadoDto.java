@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class UsuarioDetalhadoDto extends UsuarioDto{
 	
+	private Long id;
 	private List<Perfil> perfis = new ArrayList<>();
 
 }

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.alura.livraria.dto.AtualizacaoUsuarioFormDto;
+import br.com.alura.livraria.dto.UsuarioComIdDto;
 import br.com.alura.livraria.dto.UsuarioDetalhadoDto;
 import br.com.alura.livraria.dto.UsuarioDto;
 import br.com.alura.livraria.dto.UsuarioFormDto;
@@ -40,7 +41,7 @@ public class UsuarioController {
 	
 	@GetMapping
 	@ApiOperation("Listar usuários")
-	public Page<UsuarioDto> listar(@PageableDefault(size = 15) Pageable paginacao){
+	public Page<UsuarioComIdDto> listar(@PageableDefault(size = 15) Pageable paginacao){
 		return service.listar(paginacao);
 	}
 	
@@ -50,7 +51,7 @@ public class UsuarioController {
 		UsuarioDto usuarioDto = service.cadastrar(dto);
 		URI uri = uriBuilder
 				.path("/usuarios/{id}")
-				.buildAndExpand(usuarioDto.getId())
+				.buildAndExpand(usuarioDto.getNome())
 				.toUri();
 		return ResponseEntity.created(uri).body(usuarioDto); 
 	}

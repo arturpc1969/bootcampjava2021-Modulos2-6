@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.alura.livraria.dto.AtualizacaoUsuarioFormDto;
 import br.com.alura.livraria.dto.PerfilDto;
+import br.com.alura.livraria.dto.UsuarioComIdDto;
 import br.com.alura.livraria.dto.UsuarioDetalhadoDto;
 import br.com.alura.livraria.dto.UsuarioDto;
 import br.com.alura.livraria.dto.UsuarioFormDto;
@@ -47,9 +48,9 @@ public class UsuarioService {
 	@Autowired
 	private EmailSenderService emailService;
 
-	public Page<UsuarioDto> listar(Pageable paginacao) {
+	public Page<UsuarioComIdDto> listar(Pageable paginacao) {
 		Page<Usuario> usuarios = usuarioRepository.findAll(paginacao);
-		return usuarios.map(t -> modelMapper.map(t, UsuarioDto.class));
+		return usuarios.map(t -> modelMapper.map(t, UsuarioComIdDto.class));
 	}
 
 	@Transactional
