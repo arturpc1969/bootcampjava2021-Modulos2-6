@@ -62,7 +62,8 @@ class UsuarioControllerTest {
 		logado.adicionarPerfil(adminDto);
 		usuarioRepository.save(logado);
 		Authentication authentication = new UsernamePasswordAuthenticationToken(logado, logado.getLogin());
-		this.token = tokenService.gerarToken(authentication);		
+		this.token = tokenService.gerarToken(authentication);	
+		System.out.println("Token gerado para Artur: " + this.token);
 	}
 
 	@Test
