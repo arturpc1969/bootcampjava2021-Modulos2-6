@@ -100,8 +100,6 @@ public class UsuarioService {
 
 		usuario.atualizarInformacoes(dto, perfis);
 
-		System.out.println("Usuario: " + usuario);
-
 		return modelMapper.map(usuario, UsuarioDto.class);
 	}
 
